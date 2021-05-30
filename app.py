@@ -114,7 +114,7 @@ def load_module():
     question_model = T5ForConditionalGeneration.from_pretrained('ramsrigouthamg/t5_squad_v1')
     question_tokenizer = T5Tokenizer.from_pretrained('t5-base')
 
-    return nlp, question_model, question_tokenizer
+    return question_model, question_tokenizer
 
 
 
