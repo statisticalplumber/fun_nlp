@@ -124,7 +124,7 @@ st.markdown("Enter keywords with : seprator around questions need to be generate
 exp_ans = st.text_input("Example:  keyword1:keyword2:keyword3")
 
 if st.checkbox("True"):
-    nlp, question_model, question_tokenizer = load_module()
+    question_model, question_tokenizer = load_module()
     if st.button("Run"):
         passages = pd.Series(split_doc(quest))
 
