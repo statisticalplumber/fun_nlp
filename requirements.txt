@@ -4,3 +4,4 @@ spacy
 torch
 nltk
 transformers==4.2.2
+sentencepiece
