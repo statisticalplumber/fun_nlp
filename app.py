@@ -3,8 +3,8 @@ import pandas as pd
 import streamlit as st
 from sklearn.datasets import load_iris
 from transformers import T5ForConditionalGeneration,T5Tokenizer
-import spacy
-from spacy import displacy
+# import spacy
+# from spacy import displacy
 from nltk import sent_tokenize
 import pandas as pd
 import numpy as np
@@ -110,7 +110,7 @@ st.title("Basic Question Generator App")
 
 @st.cache(allow_output_mutation=True)
 def load_module():
-    nlp = spacy.load("en_core_web_sm")
+    # nlp = spacy.load("en_core_web_sm")
     question_model = T5ForConditionalGeneration.from_pretrained('ramsrigouthamg/t5_squad_v1')
     question_tokenizer = T5Tokenizer.from_pretrained('t5-base')
 
