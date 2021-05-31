@@ -2,6 +2,7 @@
 import pandas as pd
 import streamlit as st
 from transformers import T5ForConditionalGeneration,T5Tokenizer
+import transformers
 import nltk
 nltk.download('punkt')
 from nltk import sent_tokenize
@@ -110,21 +111,19 @@ st.title("Basic Question Generator App")
 
 @st.cache(allow_output_mutation=True)
 def load_module():
-    # nlp = spacy.load("en_core_web_sm")
     question_model = T5ForConditionalGeneration.from_pretrained('ramsrigouthamg/t5_squad_v1')
     question_tokenizer = T5Tokenizer.from_pretrained('t5-base')
-
-    return question_model, question_tokenizer
-
+    return question_model , question_tokenizer
 
 
-quest = st.text_area("Enter Text Here")
+
+quest = st.text_area("Enter Text Here", height=250)
 st.markdown("        ")
 st.markdown("Enter keywords with : seprator around questions need to be generated")
 exp_ans = st.text_input("Example:  keyword1:keyword2:keyword3")
 
 if st.checkbox("True"):
-    question_model, question_tokenizer = load_module()
+    question_model = load_module()
     if st.button("Run"):
         passages = pd.Series(split_doc(quest))
 
@@ -134,7 +133,6 @@ if st.checkbox("True"):
             content = passages[passages.str.contains(i)].iloc[0]
             ls_quest.append(get_question(content, i))
             ls_ans.append(i)
-
         ans = pd.DataFrame({'Question': ls_quest, 'Answer': ls_ans})
-
         st.write(ans.to_dict(orient='records'))
+
