@@ -1,6 +1,6 @@
 import pandas as pd
 import nltk
-#nltk.download('punkt')
+nltk.download('punkt')
 from nltk import sent_tokenize
 import transformers
 import streamlit as st
@@ -29,6 +29,7 @@ def split_doc(document):
 #     print("Passages: ", len(passages))
     return passages
 
+st.title("Generate questions fom texts")
 quest = st.text_area("Enter Text Here", height=250)
 st.markdown("        ")
 
