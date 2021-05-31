@@ -1,7 +1,6 @@
 # loading packages
 import pandas as pd
 import streamlit as st
-from sklearn.datasets import load_iris
 from transformers import T5ForConditionalGeneration,T5Tokenizer
 # import spacy
 # from spacy import displacy
