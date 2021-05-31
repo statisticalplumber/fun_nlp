@@ -30,17 +30,22 @@ def split_doc(document):
     return passages
 
 st.title("Generate questions fom texts")
-quest = st.text_area("Enter Text Here", height=250)
+quest = st.text_area("Enter Text Here", height=250, max_chars = 3500)
 st.markdown("        ")
+
 
 if st.button("Click"):
     nlp = load_module()
     st.markdown("Model loaded")
-    ls_out = []
-    for i in split_doc(quest):
-        q = nlp(i)
-        print(q)
-        if (len(q) == 1) or (len(q) <1):
-            q = [q]
-        ls_out.append(q)
-    st.write(sum(ls_out,[]))
+
+    def output():
+        ls_out = []
+        for i in split_doc(quest):
+            q = nlp(i)
+            print(q)
+            if (len(q) == 1) or (len(q) <1):
+                q = [q]
+            ls_out.append(q)
+        return sum(ls_out,[])
+    ls_out = output()
+    st.write(ls_out)
