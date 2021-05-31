@@ -44,17 +44,3 @@ if st.button("Click"):
             q = [q]
         ls_out.append(q)
     st.write(sum(ls_out,[]))
-
-import streamlit.components.v1 as components
-components.html(
-    """
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2M0HXYNXQ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C2M0HXYNXQ');
-    </script>
-    """,
-    height=600,
-)
