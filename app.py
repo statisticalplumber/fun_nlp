@@ -2,8 +2,6 @@
 import pandas as pd
 import streamlit as st
 from transformers import T5ForConditionalGeneration,T5Tokenizer
-# import spacy
-# from spacy import displacy
 import nltk
 nltk.download('punkt')
 from nltk import sent_tokenize
