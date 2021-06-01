@@ -1,6 +1,6 @@
 streamlit
 pandas
-torch
+torch==1.3.1
 nltk
 transformers==4.2.2
 sentencepiece
