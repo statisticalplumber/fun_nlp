@@ -1,0 +1,12 @@
+name: nlp
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.8
+- pytorch - cpuonly
+- pip:
+  - streamlit
+  - nltk
+  - transformers==4.2.2
+  - sentencepiece
