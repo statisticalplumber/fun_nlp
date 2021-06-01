@@ -41,13 +41,14 @@ s_p("<h3> Pay me with your feedback</h3>")
 
 #main panel
 st.title("Generate questions fom Texts")
+st.markdown("Watch Below video to understand how to use app")
+st.markdown("""<iframe width="100%" height="300" src="https://www.youtube.com/embed/9jirgDG8sb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
+st.markdown("        ")
 st.markdown("**Enter any paragraph of the books/webpage/snippets to get framed questions on fly**")
 quest = st.text_area("Enter Text Here", height=250, max_chars = 3500)
-st.markdown("        ")
 
 if st.button("Run and Wait"):
     st.markdown("Watch below video meanwhile")
-    st.markdown("""<iframe width="100%" height="250" src="https://www.youtube.com/embed/rrwBnlYOp4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
     nlp = load_module()
     st.markdown("Model loaded")
 
@@ -61,7 +62,7 @@ if st.button("Run and Wait"):
     ls_out = pd.DataFrame(output())
     ls_out.answer = ls_out.answer.str.replace('<pad>','')
     print(ls_out)
-    st.write(ls_out[['question', 'answer']].to_dict('records'))
+    st.write(ls_out[['question', 'answer']].to_dict(orient='records'))
 st.markdown("")
 st.markdown("**Click below to connect me**", unsafe_allow_html=True)
 html("""<a href="https://twitter.com/intent/tweet?screen_name=neural_digger&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @neural_digger</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>""")
