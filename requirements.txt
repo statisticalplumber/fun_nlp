@@ -1,6 +1,6 @@
 streamlit
 pandas
-torch==1.8.1+cpu 
+torch
 nltk
 transformers==4.2.2
 sentencepiece
