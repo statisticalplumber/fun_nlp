@@ -1,6 +1,6 @@
 import pandas as pd
 import nltk
-nltk.download('punkt')
+#nltk.download('punkt')
 from nltk import sent_tokenize
 import transformers
 import streamlit as st
@@ -12,6 +12,7 @@ def load_module():
     nlp = p("question-generation", model="valhalla/t5-small-qg-prepend", qg_format="prepend")
     return nlp
 
+@st.cache(max_entries=10, ttl=3600)
 def split_doc(document):
     paragraphs = []
     for paragraph in document.replace("\r\n", "\n").split("\n\n"):
@@ -56,12 +57,10 @@ if st.button("Run and Wait"):
         ls_out = []
         for i in split_doc(quest):
             query_out = nlp(i)
-            print(query_out)
             ls_out.append(query_out[0])
         return ls_out
     ls_out = pd.DataFrame(output())
     ls_out.answer = ls_out.answer.str.replace('<pad>','')
-    print(ls_out)
     st.write(ls_out[['question', 'answer']].to_dict(orient='records'))
 st.markdown("")
 st.markdown("**Click below to connect me**", unsafe_allow_html=True)
