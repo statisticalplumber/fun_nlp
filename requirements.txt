@@ -1,6 +1,6 @@
 streamlit
 pandas
-torch-1.8.1-cp37-cp37m-manylinux1_x86_64.whl
+torch
 nltk
 transformers==4.2.2
 sentencepiece
