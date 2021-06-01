@@ -9,7 +9,7 @@ from streamlit.components.v1 import html
 
 @st.cache(allow_output_mutation=True)
 def load_module():
-    nlp = p("e2e-qg")
+    nlp = p("question-generation", model="valhalla/t5-small-qg-prepend", qg_format="prepend")
     return nlp
 
 def split_doc(document):
@@ -52,14 +52,14 @@ if st.button("Run and Wait"):
     def output():
         ls_out = []
         for i in split_doc(quest):
-            q = nlp(i)
-            print(q)
-            if (len(q) == 1) or (len(q) <1):
-                q = [q]
-            ls_out.append(q)
-        return sum(ls_out,[])
-    ls_out = output()
-    st.write(ls_out)
+            query_out = nlp(i)
+            print(query_out)
+            ls_out.append(query_out[0])
+        return ls_out
+    ls_out = pd.DataFrame(output())
+    ls_out.answer = ls_out.answer.str.replace('<pad>','')
+    print(ls_out)
+    st.write(ls_out[['question', 'answer']].to_dict('records'))
 st.markdown("")
 st.markdown("**Click below to connect me**", unsafe_allow_html=True)
 html("""<a href="https://twitter.com/intent/tweet?screen_name=neural_digger&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @neural_digger</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>""")
