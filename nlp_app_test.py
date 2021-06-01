@@ -18,7 +18,7 @@ def split_doc(document):
         if len(paragraph.strip()) > 0:
             paragraphs.append(sent_tokenize(paragraph.strip()))
 
-    window_size = 3
+    window_size = 2
     passages = []
     for paragraph in paragraphs:
         for start_idx in range(0, len(paragraph), window_size):
