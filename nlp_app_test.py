@@ -42,7 +42,7 @@ s_p("<h3> Pay me with your feedback</h3>")
 #main panel
 st.title("Generate questions fom Texts")
 st.markdown("Watch Below video to understand how to use app")
-st.markdown("""<iframe width="100%" height="300" src="https://www.youtube.com/embed/9jirgDG8sb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
+st.markdown("""<iframe width="100%" height="300" src="https://www.youtube.com/embed/9jirgDG8sb0?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
 st.markdown("        ")
 st.markdown("**Enter any paragraph of the books/webpage/snippets to get framed questions on fly**")
 quest = st.text_area("Enter Text Here", height=250, max_chars = 3500)
