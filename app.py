@@ -4,14 +4,14 @@ import streamlit as st
 from transformers import T5ForConditionalGeneration,T5Tokenizer
 import transformers
 import nltk
-nltk.download('punkt')
+#nltk.download('punkt')
 from nltk import sent_tokenize
 import pandas as pd
 import numpy as np
 
 
 ########### imp code snippet ##################
-
+@st.cache(max_entries=5, ttl=3600)
 def get_question(sentence,answer):
   text = "context: {} answer: {} </s>".format(sentence,answer)
   #print (text)
@@ -38,7 +38,7 @@ def get_question(sentence,answer):
 
 # spacy section
   
-
+@st.cache(max_entries=10, ttl=3600)
 def check_verb(token):
     """Check verb type given spacy token"""
     if token.pos_ == 'VERB':
@@ -52,7 +52,7 @@ def check_verb(token):
     else:
         return [token.pos_, token]
 
-		
+@st.cache(max_entries=10, ttl=3600)		
 def get_noun(text):
     doc = nlp(text)
     def check_verb(token):
@@ -75,7 +75,7 @@ def get_noun(text):
                 ls_noun.append(i[1])
     return ls_noun
 	
-	
+@st.cache(max_entries=10, ttl=3600)	
 def split_doc(document):
     paragraphs = []
     for paragraph in document.replace("\r\n", "\n").split("\n\n"):
@@ -94,6 +94,7 @@ def split_doc(document):
 #     print("Passages: ", len(passages))
     return passages
 
+@st.cache(max_entries=10, ttl=3600)
 def question_derived(document):
     #print(document)
     ls_quest = []
