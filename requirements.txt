@@ -1,6 +1,6 @@
 streamlit
 pandas
-torch
+torch==1.4.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 nltk
 transformers==4.2.2
 sentencepiece
