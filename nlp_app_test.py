@@ -47,7 +47,7 @@ st.markdown("        ")
 
 if st.button("Run and Wait"):
     st.markdown("Watch below video meanwhile")
-    st.markdown("""<iframe width="500" height="250" src="https://www.youtube.com/embed/rrwBnlYOp4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
+    st.markdown("""<iframe width="100%" height="250" src="https://www.youtube.com/embed/rrwBnlYOp4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
     nlp = load_module()
     st.markdown("Model loaded")
 
