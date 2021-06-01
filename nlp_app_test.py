@@ -46,6 +46,8 @@ quest = st.text_area("Enter Text Here", height=250, max_chars = 3500)
 st.markdown("        ")
 
 if st.button("Run and Wait"):
+    st.markdown("Watch below video meanwhile")
+    st.markdown("""<iframe width="500" height="250" src="https://www.youtube.com/embed/rrwBnlYOp4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>""", unsafe_allow_html=True)
     nlp = load_module()
     st.markdown("Model loaded")
 
@@ -63,4 +65,3 @@ if st.button("Run and Wait"):
 st.markdown("")
 st.markdown("**Click below to connect me**", unsafe_allow_html=True)
 html("""<a href="https://twitter.com/intent/tweet?screen_name=neural_digger&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @neural_digger</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>""")
-    
