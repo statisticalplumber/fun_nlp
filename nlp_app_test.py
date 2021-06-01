@@ -1,6 +1,6 @@
 import pandas as pd
 import nltk
-#nltk.download('punkt')
+nltk.download('punkt')
 from nltk import sent_tokenize
 import transformers
 import streamlit as st
